@@ -42,6 +42,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UI">
+      <HintPath>..\..\lib\UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -84,10 +87,6 @@
     <ProjectReference Include="..\taschenrechner.contracts\taschenrechner.contracts.csproj">
       <Project>{42c9c405-a8a6-485f-aca8-da6b36a8c033}</Project>
       <Name>taschenrechner.contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ui.attrappe\ui.attrappe.csproj">
-      <Project>{2faf886d-9104-4612-a5aa-bce43e99cf71}</Project>
-      <Name>ui.attrappe</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

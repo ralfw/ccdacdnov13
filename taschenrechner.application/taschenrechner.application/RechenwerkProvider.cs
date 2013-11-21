@@ -15,7 +15,7 @@ namespace taschenrechner.application
 
         public int Hier_Operator(char op)
         {
-            var service = new ConsoleService("rechenwerk.bat", op.ToString());
+            var service = new ConsoleService("rechenwerk.bat", "\"" + op.ToString() + "\"");
             var ergebnis = service.Process("");
             ergebnis = Strip_commandline(ergebnis.Trim());
             return int.Parse(ergebnis.Trim());

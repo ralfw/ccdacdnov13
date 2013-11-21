@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using taschenrechner.contracts;
-using ui.attrappe;
 
 namespace taschenrechner.application
 {
@@ -19,21 +18,22 @@ namespace taschenrechner.application
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IUI ui = new UI();
+            IUI gui = new UI.Gui();
             var rewe = new RechenwerkProvider();
 
-            ui.Op_gedrückt += op => {
+            gui.Op_gedrückt += op => {
                 var ergebnis = rewe.Hier_Operator(op);
-                ui.Ergebnis_anzeigen(ergebnis);
+                Console.WriteLine(op);
+                gui.Ergebnis_anzeigen(ergebnis);
             };
 
-            ui.Ziffer_gedrückt += ziffer =>
+            gui.Ziffer_gedrückt += ziffer =>
             {
                 var ergebnis = rewe.Hier_Ziffer(ziffer);
-                ui.Ergebnis_anzeigen(ergebnis);
+                gui.Ergebnis_anzeigen(ergebnis);
             };
 
-            Application.Run((Form)ui);
+            Application.Run((Form)gui);
         }
     }
 }
