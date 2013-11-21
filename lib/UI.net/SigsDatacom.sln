@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{0E30BEB4-FBE0-45C0-AF1E-92C742BF307E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80BE103C-3804-4AE4-8229-06385FEF79F3}"
+	ProjectSection(SolutionItems) = preProject
+		Contracts\taschenrechner.contracts.dll = Contracts\taschenrechner.contracts.dll
+		Contracts\taschenrechner.contracts.pdb = Contracts\taschenrechner.contracts.pdb
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.UnitTester", "GuiUnitTester\UI.UnitTester.csproj", "{9D469C40-C2E2-4D3F-8337-83092AF0C689}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://vhe.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = UI\\UI.csproj
+		SccProjectName1 = UI
+		SccLocalPath1 = UI
+		SccProjectUniqueName2 = GuiUnitTester\\UI.UnitTester.csproj
+		SccProjectName2 = GuiUnitTester
+		SccLocalPath2 = GuiUnitTester
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E30BEB4-FBE0-45C0-AF1E-92C742BF307E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E30BEB4-FBE0-45C0-AF1E-92C742BF307E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E30BEB4-FBE0-45C0-AF1E-92C742BF307E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E30BEB4-FBE0-45C0-AF1E-92C742BF307E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D469C40-C2E2-4D3F-8337-83092AF0C689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D469C40-C2E2-4D3F-8337-83092AF0C689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D469C40-C2E2-4D3F-8337-83092AF0C689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D469C40-C2E2-4D3F-8337-83092AF0C689}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

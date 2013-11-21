@@ -9,25 +9,14 @@ namespace taschenrechner.application
         {
             var service = new ConsoleService("rechenwerk.bat", ziffer.ToString());
             var ergebnis = service.Process("");
-            ergebnis = Strip_commandline(ergebnis.Trim());
-            return int.Parse(ergebnis.Trim());
+            return int.Parse(ergebnis);
         }
 
         public int Hier_Operator(char op)
         {
             var service = new ConsoleService("rechenwerk.bat", "\"" + op.ToString() + "\"");
             var ergebnis = service.Process("");
-            ergebnis = Strip_commandline(ergebnis.Trim());
-            return int.Parse(ergebnis.Trim());
-        }
-
-
-        string Strip_commandline(string consoleOutput)
-        {
-            if (!consoleOutput.StartsWith("C:")) return consoleOutput;
-
-            var eolIndex = consoleOutput.IndexOf("\n");
-            return consoleOutput.Substring(eolIndex + 1);
+            return int.Parse(ergebnis);
         }
     }
 }

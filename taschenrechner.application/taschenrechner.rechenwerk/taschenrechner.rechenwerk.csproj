@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8783E820-ED08-4D17-9FB7-4F34E6134A7B}</ProjectGuid>
+    <ProjectGuid>{AA7A0FE6-42CA-4CDF-B4F5-C4187760E065}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>servicewrappers</RootNamespace>
-    <AssemblyName>servicewrappers</AssemblyName>
+    <RootNamespace>taschenrechner.rechenwerk</RootNamespace>
+    <AssemblyName>taschenrechner.rechenwerk</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,8 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,8 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleService.cs" />
-    <Compile Include="HttpService.cs" />
+    <Compile Include="Rechnen.cs" />
+    <Compile Include="Zwischenergebnis.cs" />
+    <Compile Include="Taschenrechner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

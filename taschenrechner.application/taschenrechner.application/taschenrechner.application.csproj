@@ -88,6 +88,16 @@
       <Project>{42c9c405-a8a6-485f-aca8-da6b36a8c033}</Project>
       <Name>taschenrechner.contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\taschenrechner.rechenwerk\taschenrechner.rechenwerk.csproj">
+      <Project>{aa7a0fe6-42ca-4cdf-b4f5-c4187760e065}</Project>
+      <Name>taschenrechner.rechenwerk</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\lib\taschenrechner.jar">
+      <Link>taschenrechner.jar</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
