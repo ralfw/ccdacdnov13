@@ -1,9 +1,8 @@
-﻿using System;
-using servicewrappers;
+﻿using servicewrappers;
 
 namespace taschenrechner.application
 {
-    class RechenwerkProvider
+    class ConsoleRechenwerkProvider
     {
         public int Hier_Ziffer(int ziffer)
         {

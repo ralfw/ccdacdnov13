@@ -22,10 +22,15 @@ namespace taschenrechner.application
             IUI gui = new UI.Gui();
             
             //Integriere_mit_Java_Service(gui);
+            //Integriere_mit_CS_Bibliothek(gui);
+            //Application.Run((Form)gui);
 
-            Integriere_mit_CS_Bibliothek(gui);
-
-            Application.Run((Form)gui);
+            //Achtung: Es kann nötig sein, die Url http://localhost:1234 "freizuschalten".
+            //Alternativ die Anwendung als Admin starten.
+            using (Integriere_mit_Http_Service(gui))
+            {
+                Application.Run((Form)gui);
+            }
         }
 
 
@@ -41,7 +46,7 @@ namespace taschenrechner.application
 
         private static void Integriere_mit_Java_Service(IUI gui)
         {
-            var rewe = new RechenwerkProvider();
+            var rewe = new ConsoleRechenwerkProvider();
 
             gui.Op_gedrückt += op => {
                 var ergebnis = rewe.Hier_Operator(op);
@@ -52,6 +57,25 @@ namespace taschenrechner.application
                 var ergebnis = rewe.Hier_Ziffer(ziffer);
                 gui.Ergebnis_anzeigen(ergebnis);
             };
+        }
+
+        private static HttpRechenwerkProvider Integriere_mit_Http_Service(IUI gui)
+        {
+            var rewe = new HttpRechenwerkProvider();
+
+            gui.Op_gedrückt += op =>
+            {
+                var ergebnis = rewe.Hier_Operator(op);
+                gui.Ergebnis_anzeigen(ergebnis);
+            };
+
+            gui.Ziffer_gedrückt += ziffer =>
+            {
+                var ergebnis = rewe.Hier_Ziffer(ziffer);
+                gui.Ergebnis_anzeigen(ergebnis);
+            };
+
+            return rewe;
         }
     }
 }

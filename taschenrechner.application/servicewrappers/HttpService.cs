@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -10,8 +11,6 @@ namespace servicewrappers
 {
     public class HttpService : IDisposable
     {
-        private readonly string _componentFilename;
-        private readonly string _commandLineParams;
         private readonly Uri _endpoint;
 
         private readonly Process _process;
@@ -32,18 +31,29 @@ namespace servicewrappers
         }
 
 
-        public string Process(string process)
+        public string Process(string input)
         {
-            var request = (HttpWebRequest)WebRequest.Create(_endpoint);
-            request.Method = "GET";
-            request.ContentType = "text/html";
-            throw new NotImplementedException();
+            var http = (HttpWebRequest)WebRequest.Create(_endpoint);
+            http.Method = "POST";
+
+            var inputBytes = Encoding.UTF8.GetBytes(input);
+            http.ContentLength = inputBytes.Length;
+
+            using (var req = http.GetRequestStream())
+            {
+                req.Write(inputBytes,0,inputBytes.Length);
+            }
+
+            using (var resp = new StreamReader(http.GetResponse().GetResponseStream(), Encoding.UTF8))
+            {
+                return resp.ReadToEnd();
+            }
         }
 
 
         public void Dispose()
         {
-            _process.Close();
+            _process.Kill();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace servicewrappers.tests
     [TestFixture]
     public class test_ConsoleService
     {
-        [Test]
+        [Test, Explicit]
         public void Run()
         {
             var sut = new ConsoleService("sampleconsole.exe", "");

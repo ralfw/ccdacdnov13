@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -31,13 +32,15 @@ namespace samplehttpservice
     {
         public HttpService()
         {
-            Get["/hello"] = _ => "world";
-            Get["/ping/{value}"] = parameters => "pong:" + parameters.value;
-            Get["/close"] = _ =>
+            Post["/"] = _ =>
                 {
-                    Program.__exit.Set();
-                    return "ack";
+                    var sr = new StreamReader(Request.Body, Encoding.UTF8);
+                    var text = sr.ReadToEnd();
+                    return Response.AsText("<<<" + text + ">>>");
                 };
+
+            Get["/ping"] = parameters => "pong: " + DateTime.Now.ToString();
+            Get["/close"] = _ => { Program.__exit.Set(); return "bye"; };
         }
     }
 }
